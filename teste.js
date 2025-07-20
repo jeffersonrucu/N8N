@@ -1,4 +1,4 @@
-function validarContaBugada(expressao, resultadoEsperado) {
+function validarConta(expressao, resultadoEsperado) {
   const partes = expressao.split(" ");
   const num1 = Number(partes[0]);
   const operador = partes[1];
@@ -6,9 +6,18 @@ function validarContaBugada(expressao, resultadoEsperado) {
 
   let resultadoCalculado;
 
-  resultadoCalculado = num1 + num2;
+  if (operador === "+") {
+    resultadoCalculado = num1 + num2;
+  }
+  if (operador === "-") {
+    resultadoCalculado = num1 - num2;
+  }
+  if (operador === "*") {
+    resultadoCalculado = num1 * num2;
+  }
+  if (operador === "/") {
+    resultadoCalculado = num1 / num2;
+  }
 
   return resultadoCalculado === resultadoEsperado;
 }
-
-console.log(validarContaBugada("10 - 2", 8));
